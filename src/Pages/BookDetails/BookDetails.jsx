@@ -1,6 +1,7 @@
 import React from "react";
 import { useLoaderData, useParams } from "react-router";
 import { FaStarHalfAlt } from "react-icons/fa";
+import { addToStoreDB } from "../../utility/addToDB";
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -23,6 +24,16 @@ const BookDetails = () => {
   } = singleBook;
 
   console.log(totalPages);
+
+
+ const handleMarkAsRead = id =>{
+  addToStoreDB(id)
+
+
+ }
+
+
+
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row">
@@ -74,8 +85,8 @@ const BookDetails = () => {
             <p className="font-bold flex items-center"><FaStarHalfAlt />{rating}</p>
           </div>
           <div className=" flex gap-10 mt-10">
-            <button className="btn btn-primary">Read</button>
-            <button className="btn btn-primary">Wishlist</button>
+            <button onClick={()=>handleMarkAsRead(id)} className="btn btn-primary">Mar as Read</button>
+            <button className="btn btn-primary"> Add to Wishlist</button>
           </div>
         </div>
       </div>
