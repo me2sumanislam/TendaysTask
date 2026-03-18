@@ -20,4 +20,4 @@
     }
  }
 
- export { addToStoreDB};
+ export { addToStoreDB, getStoredBook};
